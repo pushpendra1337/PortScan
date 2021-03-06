@@ -1,4 +1,4 @@
-package net.devdungeon.android.portscanner
+package net.intensecorp.portscan
 
 import android.widget.EditText
 import java.net.Socket
