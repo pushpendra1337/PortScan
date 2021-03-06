@@ -4,4 +4,5 @@
     <string name="title_startscan">Start Scan</string>
     <string name="title_about">About</string>
     <string name="no_scan_results_yet">No scan results yet. Start a scan by clicking on the Scan tab to see the list of scanned ports.</string>
+    <string name="type_hostname_here">Type Hostname</string>
 </resources>
