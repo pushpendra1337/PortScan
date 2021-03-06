@@ -12,7 +12,7 @@
             android:title="@string/title_startscan"/>
     <item
             android:id="@+id/navigation_about"
-            android:icon="@android:drawable/ic_menu_more"
+            android:icon="@android:drawable/ic_dialog_info"
             android:title="@string/title_about"/>
 
 </menu>
