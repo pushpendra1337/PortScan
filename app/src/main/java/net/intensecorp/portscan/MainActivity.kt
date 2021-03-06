@@ -1,9 +1,11 @@
-package net.devdungeon.android.portscanner
+package net.intensecorp.portscan
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.TextInputEditText
 import android.support.v7.app.AppCompatActivity
-import com.devdungeon.android.portscanner.R
+import android.widget.EditText
+import net.intensecorp.portscan.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import java.util.concurrent.Executors
@@ -12,7 +14,7 @@ import java.util.concurrent.Executors
 class MainActivity : AppCompatActivity() {
 
     private val numThreads: Int = 16
-    private val host: String = "www.devdungeon.com"
+    private var host: String = "www.google.com"
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -20,6 +22,11 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_startscan -> {
+                host = hostx.text.toString()
+                if (host.isEmpty()) {
+                    this.scrollView2.portScanResults.setText("No host specified")
+                    return@OnNavigationItemSelectedListener false
+                }
                 this.scrollView2.portScanResults.setText("Scan results for:\n$host\n============")
 
                 val executor = Executors.newFixedThreadPool(numThreads)
@@ -33,8 +40,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener false
             }
             R.id.navigation_about -> {
-                // Replace screen fragment with settings
-                // setContentView()?
+                this.scrollView2.portScanResults.setText("Created by Pushpendra Yadav")
                 return@OnNavigationItemSelectedListener true
             }
         }
